@@ -12,3 +12,5 @@
     transitions to explicit animations.
  5. Custom painter animations - animating decorations and objects.
  6. Flare - custom animation example with flare framework.
+
+## To build this app run the `main.dart` file in the `lib` folder.
