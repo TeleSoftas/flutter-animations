@@ -62,7 +62,6 @@ class APainter extends CustomPainter {
     // TODO: implement shouldRepaint
     throw UnimplementedError();
   }
-
 }
 
 class RipplePainter extends CustomPainter {
@@ -97,6 +96,4 @@ class RipplePainter extends CustomPainter {
 
   @override
   bool shouldRepaint(CustomPainter oldDelegate) => true;
-
-
 }

@@ -22,14 +22,12 @@ class SeagullProgressIndicator extends StatelessWidget {
           height: double.infinity,
           color: Colors.white.withOpacity(0.6),
           child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-
             FlareActor(
               'animations/seagull.flr',
               animation: 'thinking gull',
               artboard: 'Seagull thinking',
               sizeFromArtboard: true,
             ),
-
             Text('Loading...', style: TextStyle(fontSize: 20)),
           ]),
         ),
