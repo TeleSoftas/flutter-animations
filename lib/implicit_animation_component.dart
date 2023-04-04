@@ -22,6 +22,9 @@ class _ImplicitAnimationComponentState extends State<ImplicitAnimationComponent>
             SizedBox(height: 32),
             _buildRandomiseButton(),
             SizedBox(height: 32),
+            Flexible(
+              child: AnimatedButton(),
+            ),
           ]),
         ),
       );
@@ -54,4 +57,99 @@ class _ImplicitAnimationComponentState extends State<ImplicitAnimationComponent>
   double doubleInRange(Random source, num start, num end) => source.nextDouble() * (end - start) + start;
 
   Color randomOpaqueColor(Random source) => Color(source.nextInt(0xffffffff)).withAlpha(0xff);
+}
+
+class AnimatedButton extends StatefulWidget {
+  const AnimatedButton({Key? key}) : super(key: key);
+
+  @override
+  State<AnimatedButton> createState() => _AnimatedButtonState();
+}
+
+enum ButtonState { initial, progress, success }
+
+class _AnimatedButtonState extends State<AnimatedButton> {
+  ButtonState buttonState = ButtonState.initial;
+
+  @override
+  Widget build(BuildContext context) => AnimatedContainer(
+        duration: Duration(milliseconds: 400),
+        decoration: BoxDecoration(
+          color: _getButtonColor(),
+          borderRadius: BorderRadius.all(Radius.circular(_getBorderRadius())),
+        ),
+        child: Material(
+          color: Colors.transparent,
+          child: InkWell(
+            onTap: _startButtonAnimation,
+            child: Padding(
+              padding: const EdgeInsets.all(8),
+              child: Row(mainAxisSize: MainAxisSize.min, children: [
+                AnimatedSwitcher(
+                  duration: Duration(milliseconds: 150),
+                  child: _getIcon(),
+                ),
+                if (_getButtonText().isNotEmpty) ...[
+                  SizedBox(width: 8),
+                  Text(
+                    _getButtonText(),
+                    style: TextStyle(color: Colors.white, fontSize: 24),
+                  ),
+                  SizedBox(width: 8),
+                ]
+              ]),
+            ),
+          ),
+        ),
+      );
+
+  void _startButtonAnimation() {
+    setState(() => buttonState = ButtonState.progress);
+    Future.delayed(Duration(seconds: 2), () => setState(() => buttonState = ButtonState.success));
+  }
+
+  Widget _getIcon() {
+    if (buttonState == ButtonState.success) {
+      return Icon(
+        Icons.check,
+        color: Colors.white,
+        size: 36,
+      );
+    }
+    if (buttonState == ButtonState.initial) {
+      return Icon(
+        Icons.add,
+        color: Colors.white,
+        size: 36,
+      );
+    }
+    return CircularProgressIndicator(color: Colors.white);
+  }
+
+  String _getButtonText() {
+    if (buttonState == ButtonState.success) {
+      return 'Success!';
+    }
+    if (buttonState == ButtonState.initial) {
+      return 'Click me!';
+    }
+    return '';
+  }
+
+  MaterialColor _getButtonColor() {
+    if (buttonState == ButtonState.success) {
+      return Colors.green;
+    }
+    if (buttonState == ButtonState.progress) {
+      return Colors.yellow;
+    }
+    return Colors.blue;
+  }
+
+  double _getBorderRadius() {
+    if (buttonState == ButtonState.initial) {
+      return 4;
+    }
+    return 40;
+  }
 }
