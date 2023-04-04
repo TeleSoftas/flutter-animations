@@ -12,16 +12,13 @@ class _ExplicitCustomAnimationComponentState extends State<ExplicitCustomAnimati
 
   void initState() {
     super.initState();
-
     _animationController = AnimationController(duration: Duration(seconds: 1), vsync: this);
-
     _heightAnimation = Tween(begin: 0.0, end: 200.0).animate(
       CurvedAnimation(
         parent: _animationController,
         curve: Curves.easeOutCubic,
       ),
     );
-
     _animationController.repeat(reverse: true);
   }
 
@@ -30,14 +27,12 @@ class _ExplicitCustomAnimationComponentState extends State<ExplicitCustomAnimati
         appBar: AppBar(title: Text('Explicit custom animations')),
         body: Column(mainAxisAlignment: MainAxisAlignment.end, mainAxisSize: MainAxisSize.max, children: [
           _buildCircle(),
-
           AnimatedBuilder(
             animation: _animationController,
             builder: (context, _) => SizedBox(
               height: _heightAnimation.value,
             ),
           ),
-
           _buildGround(),
         ]),
       );
