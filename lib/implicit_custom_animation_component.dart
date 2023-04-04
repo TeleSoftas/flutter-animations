@@ -21,14 +21,14 @@ class _ImplicitCustomAnimationComponentState extends State<ImplicitCustomAnimati
         ),
       );
 
-  Widget _buildSimpleDialogButton(BuildContext context) => RaisedButton(
+  Widget _buildSimpleDialogButton(BuildContext context) => OutlinedButton(
         onPressed: () => showDialog(
           context: context,
           builder: (context) => AlertDialog(
             title: Text('Hello!'),
             content: Text('Just a boring old dialog, thats all...'),
             actions: [
-              FlatButton(
+              OutlinedButton(
                 child: Text('Close'),
                 onPressed: () => Navigator.of(context).maybePop(false),
               ),
@@ -38,7 +38,7 @@ class _ImplicitCustomAnimationComponentState extends State<ImplicitCustomAnimati
         child: Text('Press me!'),
       );
 
-  Widget _buildSizingSpinningDialogButton(BuildContext context) => RaisedButton(
+  Widget _buildSizingSpinningDialogButton(BuildContext context) => OutlinedButton(
         onPressed: () => _showSpinningDialog(context),
         child: Text('Press me to go wild!'),
       );
@@ -57,7 +57,7 @@ class _ImplicitCustomAnimationComponentState extends State<ImplicitCustomAnimati
                 title: Text('Hello! How are you today?'),
                 content: Text('Spinning and sizing is amazing is it not?'),
                 actions: [
-                  FlatButton(
+                  OutlinedButton(
                     child: Text('Close'),
                     onPressed: () => Navigator.of(context).maybePop(false),
                   ),

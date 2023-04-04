@@ -38,33 +38,33 @@ class _MyAppState extends State<MyApp> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Center(
-                    child: FlatButton(
+                    child: OutlinedButton(
                       onPressed: () => _navigateToImplicitAnimationComponent(context),
                       child: Text('IMPLICIT ANIMATION EXAMPLE'),
                     ),
                   ),
                   SizedBox(height: 16),
-                  FlatButton(
+                  OutlinedButton(
                     onPressed: () => _navigateToCustomImplicitAnimationComponent(context),
                     child: Text('IMPLICIT CUSTOM ANIMATION EXAMPLE'),
                   ),
                   SizedBox(height: 16),
-                  FlatButton(
+                  OutlinedButton(
                     onPressed: () => _navigateToExplicitAnimationComponent(context),
                     child: Text('EXPLICIT ANIMATION EXAMPLE'),
                   ),
                   SizedBox(height: 16),
-                  FlatButton(
+                  OutlinedButton(
                     onPressed: () => _navigateToCustomExplicitAnimationComponent(context),
                     child: Text('EXPLICIT CUSTOM ANIMATION EXAMPLE'),
                   ),
                   SizedBox(height: 16),
-                  FlatButton(
+                  OutlinedButton(
                     onPressed: () => _navigateToCustomPainterAnimationComponent(context),
                     child: Text('CUSTOM PAINTER ANIMATION EXAMPLE'),
                   ),
                   SizedBox(height: 16),
-                  FlatButton(
+                  OutlinedButton(
                     onPressed: () => _navigateToFlareAnimationComponent(context),
                     child: Text('FLARE ANIMATION EXAMPLE'),
                   ),
@@ -75,21 +75,39 @@ class _MyAppState extends State<MyApp> {
         ),
       );
 
-  Future<void> _navigateToImplicitAnimationComponent(BuildContext context) =>
-      _navigation.currentState.push(MaterialPageRoute(builder: (_) => ImplicitAnimationComponent()));
+  Future<void> _navigateToImplicitAnimationComponent(BuildContext context) => _navigation.currentState!.push(
+        MaterialPageRoute(
+          builder: (_) => ImplicitAnimationComponent(),
+        ),
+      );
 
-  Future<void> _navigateToCustomImplicitAnimationComponent(BuildContext context) =>
-      _navigation.currentState.push(MaterialPageRoute(builder: (_) => ImplicitCustomAnimationComponent()));
+  Future<void> _navigateToCustomImplicitAnimationComponent(BuildContext context) => _navigation.currentState!.push(
+        MaterialPageRoute(
+          builder: (_) => ImplicitCustomAnimationComponent(),
+        ),
+      );
 
-  Future<void> _navigateToExplicitAnimationComponent(BuildContext context) =>
-      _navigation.currentState.push(MaterialPageRoute(builder: (_) => ExplicitAnimationComponent()));
+  Future<void> _navigateToExplicitAnimationComponent(BuildContext context) => _navigation.currentState!.push(
+        MaterialPageRoute(
+          builder: (_) => ExplicitAnimationComponent(),
+        ),
+      );
 
-  Future<void> _navigateToCustomExplicitAnimationComponent(BuildContext context) =>
-      _navigation.currentState.push(MaterialPageRoute(builder: (_) => ExplicitCustomAnimationComponent()));
+  Future<void> _navigateToCustomExplicitAnimationComponent(BuildContext context) => _navigation.currentState!.push(
+        MaterialPageRoute(
+          builder: (_) => ExplicitCustomAnimationComponent(),
+        ),
+      );
 
-  Future<void> _navigateToCustomPainterAnimationComponent(BuildContext context) =>
-      _navigation.currentState.push(MaterialPageRoute(builder: (_) => CustomPainterAnimationsComponent()));
+  Future<void> _navigateToCustomPainterAnimationComponent(BuildContext context) => _navigation.currentState!.push(
+        MaterialPageRoute(
+          builder: (_) => CustomPainterAnimationsComponent(),
+        ),
+      );
 
-  Future<void> _navigateToFlareAnimationComponent(BuildContext context) =>
-      _navigation.currentState.push(MaterialPageRoute(builder: (_) => FlareAnimationsComponent()));
+  Future<void> _navigateToFlareAnimationComponent(BuildContext context) => _navigation.currentState!.push(
+        MaterialPageRoute(
+          builder: (_) => FlareAnimationsComponent(),
+        ),
+      );
 }

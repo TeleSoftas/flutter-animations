@@ -41,7 +41,7 @@ class _ImplicitAnimationComponentState extends State<ImplicitAnimationComponent>
         ),
       );
 
-  Widget _buildRandomiseButton() => RaisedButton(
+  Widget _buildRandomiseButton() => OutlinedButton(
         onPressed: () => setState(() {
           final random = Random();
           imageHeight = doubleInRange(random, 100, 300);

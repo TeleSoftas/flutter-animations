@@ -7,7 +7,7 @@ class CustomPainterAnimationsComponent extends StatefulWidget {
 
 class _CustomPainterAnimationsComponentState extends State<CustomPainterAnimationsComponent>
     with SingleTickerProviderStateMixin {
-  AnimationController _animationController;
+  late AnimationController _animationController;
 
   @override
   void initState() {
@@ -72,8 +72,8 @@ class RipplePainter extends CustomPainter {
   final double _baseRippleSize;
 
   RipplePainter({
-    Color color,
-    double baseRippleSize,
+    required Color color,
+    required double baseRippleSize,
   })  : _color = color,
         _baseRippleSize = baseRippleSize;
 

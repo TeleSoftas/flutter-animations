@@ -11,9 +11,7 @@ class FlareAnimationsComponent extends StatelessWidget {
 }
 
 class SeagullProgressIndicator extends StatelessWidget {
-  final String label;
-
-  const SeagullProgressIndicator({Key key, this.label}) : super(key: key);
+  const SeagullProgressIndicator({super.key});
 
   @override
   Widget build(BuildContext context) => IgnorePointer(

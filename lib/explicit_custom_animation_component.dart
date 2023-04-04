@@ -7,9 +7,8 @@ class ExplicitCustomAnimationComponent extends StatefulWidget {
 
 class _ExplicitCustomAnimationComponentState extends State<ExplicitCustomAnimationComponent>
     with SingleTickerProviderStateMixin {
-  AnimationController _animationController;
-
-  Animation _heightAnimation;
+  late AnimationController _animationController;
+  late Animation _heightAnimation;
 
   void initState() {
     super.initState();

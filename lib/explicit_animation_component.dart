@@ -7,7 +7,7 @@ class ExplicitAnimationComponent extends StatefulWidget {
 
 class _ExplicitAnimationComponentState extends State<ExplicitAnimationComponent> //
     with SingleTickerProviderStateMixin {
-  AnimationController _animationController;
+  late AnimationController _animationController;
 
   void initState() {
     super.initState();
